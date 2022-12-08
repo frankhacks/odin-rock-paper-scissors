@@ -12,10 +12,17 @@
         console.log(computerSelection);
         let playerScore = 0;
         let computerScore = 0;
+        let round = 0;
         function game() {
             for (let i = 0; i < 5; i++) {
                 playRound();
-                alert("Computer: "+computerScore+" Player: "+playerScore); 
+                console.log("Computer: "+computerScore+" Player: "+playerScore); 
+                round++;
+                if (round === 5 && computerScore>playerScore) {
+                    console.log("Game Over. Computer Wins "+computerScore+" to "+playerScore+".");
+                } else if (round ===5 && computerScore<playerScore) {
+                    console.log("Game Over. You Win "+playerScore+" to "+computerScore+".");
+                }
             }
         }
 
