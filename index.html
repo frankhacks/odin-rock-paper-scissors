@@ -8,14 +8,30 @@
 </head>
 <body>
     <script>
-        const playerSelection = 'Rock';
+        const playerSelection = 'SCISsors';
         const computerSelection = getComputerChoice();
         console.log(computerSelection);
         function results() {
             if (playerSelection.toLowerCase()==='rock' && computerSelection==="Paper") {
-            return "You Lose! Paper beats Rock";
+                return "You Lose! Paper beats Rock";
+            } else if (playerSelection.toLowerCase()==='rock' && computerSelection==="Rock") {
+                return "It's a tie!";
+            } else if (playerSelection.toLowerCase()==='rock' && computerSelection==="Scissors") {
+                return "You Win! Rock beats Scissors";
+            } else if (playerSelection.toLowerCase()==='paper' && computerSelection==="Paper") {
+                return "It's a tie!";
+            } else if (playerSelection.toLowerCase()==='paper' && computerSelection==="Rock") {
+                return "You Win! Paper beats Rock";
+            } else if (playerSelection.toLowerCase()==='paper' && computerSelection==="Scissors") {
+                return "You Lose! Scissors beat Paper";
+            } else if (playerSelection.toLowerCase()==='scissors' && computerSelection==="Paper") {
+                return "You Win! Scissors beat Paper";
+            } else if (playerSelection.toLowerCase()==='scissors' && computerSelection==="Rock") {
+                return "You Lose! Rock beats Scissors";
+            } else if (playerSelection.toLowerCase()==='scissors' && computerSelection==="Scissors") {
+                return "It's a tie!";
             } else {
-                return "bug";
+                return "Bug";
             }
         }
         console.log(results());
