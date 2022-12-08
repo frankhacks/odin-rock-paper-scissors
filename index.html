@@ -8,9 +8,19 @@
 </head>
 <body>
     <script>
-        var choices = ["Rock","Paper","Scissors"];
+        const playerSelection = 'Rock';
+        const computerSelection = getComputerChoice();
+        console.log(computerSelection);
+        function results() {
+            if (playerSelection.toLowerCase()==='rock' && computerSelection==="Paper") {
+            return "You Lose! Paper beats Rock";
+            } else {
+                return "bug";
+            }
+        }
+        console.log(results());
         function getComputerChoice() {
-            let decision = Math.floor(Math.random()*choices.length);
+            let decision = Math.floor(Math.random()*3);
             if (decision === 0) {
                 return "Rock";
             } else if (decision === 1) {
@@ -19,7 +29,6 @@
                 return "Scissors";
             }
         }
-        console.log(getComputerChoice());
     </script>
 </body>
 </html>
