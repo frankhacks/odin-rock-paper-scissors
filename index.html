@@ -5,85 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script>
-        let playerScore = 0;
-        let computerScore = 0;
-        let round = 0;
-
-        /*Function that runs the game for 5 rounds*/
-        function game() {
-            for (let round = 0; round < 5; round++) {
-                getComputerChoice(); /*run this to generate a new random value at the beginning of each loop*/
-                playRound();
-                alert("Computer: "+computerScore+" Player: "+playerScore); 
-                if (round<5 && reroll==="yes"){
-                    round = minus;
-                } else if (round === 4 && computerScore>playerScore) {
-                    alert("Game Over. Computer Wins "+computerScore+" to "+playerScore+".");
-                } else if (round ===4 && computerScore<playerScore) {
-                    alert("Game Over. You Win "+playerScore+" to "+computerScore+".");
-                } else if (round===4) {
-                    alert("Game Over. You tied "+computerScore+" to "+playerScore+".");             
-                } 
-            }
-        }
-        /*Random value generator*/
-        function getComputerChoice() {
-            let decision = Math.floor(Math.random()*3);
-            if (decision === 0) {
-                return "Rock";
-            } else if (decision === 1) {
-                return "Paper";
-            } else {
-                return "Scissors";
-            }
-        }
-        /*One round of rock paper scissors that evaluates player submitted value via popup window 
-        and adds to player or comp score based on who wins*/
-        function playRound() {
-            let computerSelection = getComputerChoice();
-            let playerSelection = window.prompt('Rock, Paper, or Scissors? (Hint: Computer says '+computerSelection+")");
-            if (playerSelection.toLowerCase()==='rock' && computerSelection==="Paper") {
-                alert("You Lose! Paper beats Rock");
-                computerScore++;
-            } else if (playerSelection.toLowerCase()==='rock' && computerSelection==="Rock") {
-                alert("It's a tie!");
-                playRound();
-            } else if (playerSelection.toLowerCase()==='rock' && computerSelection==="Scissors") {
-                alert("You Win! Rock beats Scissors");
-                playerScore++;
-            } else if (playerSelection.toLowerCase()==='paper' && computerSelection==="Paper") {
-                alert("It's a tie!");
-                playRound();
-            } else if (playerSelection.toLowerCase()==='paper' && computerSelection==="Rock") {
-                alert("You Win! Paper beats Rock");
-                playerScore++;
-            } else if (playerSelection.toLowerCase()==='paper' && computerSelection==="Scissors") {
-                alert("You Lose! Scissors beat Paper");
-                computerScore++;
-            } else if (playerSelection.toLowerCase()==='scissors' && computerSelection==="Paper") {
-                alert("You Win! Scissors beat Paper");
-                playerScore++;
-            } else if (playerSelection.toLowerCase()==='scissors' && computerSelection==="Rock") {
-                alert("You Lose! Rock beats Scissors");
-                computerScore++;
-            } else if (playerSelection.toLowerCase()==='scissors' && computerSelection==="Scissors") {
-                alert("It's a tie!");
-                playRound();
-            } else {
-                alert("Error: answer did not match 'rock', 'paper', or 'scissors'");
-                playRound();
-            }
-        }
-        /*Doesn't do anything right now but I want to reset scores after game loop ends*/
-        function reset() {
-            let playerScore = 0;
-            let computerScore = 0;
-        }
-        /*runs game as soon as page loads*/
-        window.onload = game();
-    </script>
+    <div><button id="playGame">Play RPS</button></div>
+    <div id="butts"></div>
+    <div id="board"></div>
 </body>
 </html>
