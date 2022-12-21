@@ -17,17 +17,23 @@ function addToBoard(){
     const scoreBoard = document.createElement('div');
     scoreBoard.classList.add('scoreBoard');
     sboard.innerHTML="";
-    scoreBoard.textContent = `Computer: ${computerScore} Player: ${playerScore}`;
-    sboard.appendChild(scoreBoard);
+    if (computerScore == 5) {
+        scoreBoard.textContent = "Game over, computer wins "+computerScore+" to "+playerScore+"!";
+    } else if (playerScore == 5) {
+        scoreBoard.textContent = "Game over, player wins "+playerScore+" to "+computerScore+"!";
+    } else {
+        scoreBoard.textContent = `Computer: ${computerScore} Player: ${playerScore}`;
+    }
+        sboard.appendChild(scoreBoard);
 }
 
 function chickenDinner(){
     if(computerScore==5){
-        alert("Game over, computer wins "+computerScore+" to "+playerScore+"!");
         butts.innerHTML="";
+        playGame.style.display = "initial";
     } else if(playerScore==5){
-        alert("Game over, player wins "+playerScore+" to "+computerScore+"!");
         butts.innerHTML="";
+        playGame.style.display = "initial";
     }
 }
 
@@ -95,14 +101,6 @@ function scissorsClick(){
     game();
 }
 
-
-/*Doesn't do anything right now but I want to reset scores after game loop ends*/
-function reset() {
-    if (computerScore==5 || playerScore==5) {
-    let playerScore = 0;
-    let computerScore = 0;
-    }
-}
 const openGame = document.getElementById("playGame");
 openGame.addEventListener("click", addButtons);
 
@@ -127,9 +125,10 @@ function addButtons() {
     sciButt.setAttribute("onClick","scissorsClick()");
     sciButt.appendChild(sciText);
     butts.appendChild(sciButt);
-    playerScore = 0;
-    computerScore = 0;
+    playerScore = 0; //resets player score
+    computerScore = 0; //resets computer score
     sboard.innerHTML="";
+    playGame.style.display = "none";
 }
 
 
