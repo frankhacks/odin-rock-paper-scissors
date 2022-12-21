@@ -1,5 +1,5 @@
-let playerScore = 0;
-let computerScore = 0;
+var playerScore = 0;
+var computerScore = 0;
 let round = 0;
 
 /*Function that runs the game*/
@@ -24,8 +24,10 @@ function addToBoard(){
 function chickenDinner(){
     if(computerScore==5){
         alert("Game over, computer wins "+computerScore+" to "+playerScore+"!");
+        butts.innerHTML="";
     } else if(playerScore==5){
         alert("Game over, player wins "+playerScore+" to "+computerScore+"!");
+        butts.innerHTML="";
     }
 }
 
@@ -96,8 +98,10 @@ function scissorsClick(){
 
 /*Doesn't do anything right now but I want to reset scores after game loop ends*/
 function reset() {
+    if (computerScore==5 || playerScore==5) {
     let playerScore = 0;
     let computerScore = 0;
+    }
 }
 const openGame = document.getElementById("playGame");
 openGame.addEventListener("click", addButtons);
@@ -123,6 +127,9 @@ function addButtons() {
     sciButt.setAttribute("onClick","scissorsClick()");
     sciButt.appendChild(sciText);
     butts.appendChild(sciButt);
+    playerScore = 0;
+    computerScore = 0;
+    sboard.innerHTML="";
 }
 
 
