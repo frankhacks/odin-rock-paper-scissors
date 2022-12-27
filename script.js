@@ -62,28 +62,28 @@ function playRound() {
     let computerSelection = getComputerChoice();
     //let playerSelection = playerClick();
     if (playerSelection.toLowerCase()==='rock' && computerSelection==="Paper") {
-        alert("You Lose! Paper beats Rock");
+        alert("You Lose! Computer chose Paper");
         computerScore++;
     } else if (playerSelection.toLowerCase()==='rock' && computerSelection==="Rock") {
         alert("It's a tie!");
         //playRound();
     } else if (playerSelection.toLowerCase()==='rock' && computerSelection==="Scissors") {
-        alert("You Win! Rock beats Scissors");
+        alert("You Win! Computer chose Scissors");
         playerScore++;
     } else if (playerSelection.toLowerCase()==='paper' && computerSelection==="Paper") {
         alert("It's a tie!");
         //playRound();
     } else if (playerSelection.toLowerCase()==='paper' && computerSelection==="Rock") {
-        alert("You Win! Paper beats Rock");
+        alert("You Win! Computer chose Rock");
         playerScore++;
     } else if (playerSelection.toLowerCase()==='paper' && computerSelection==="Scissors") {
-        alert("You Lose! Scissors beat Paper");
+        alert("You Lose! Computer chose Scissors");
         computerScore++;
     } else if (playerSelection.toLowerCase()==='scissors' && computerSelection==="Paper") {
-        alert("You Win! Scissors beat Paper");
+        alert("You Win! Computer chose Paper");
         playerScore++;
     } else if (playerSelection.toLowerCase()==='scissors' && computerSelection==="Rock") {
-        alert("You Lose! Rock beats Scissors");
+        alert("You Lose! Computer chose Rock");
         computerScore++;
     } else if (playerSelection.toLowerCase()==='scissors' && computerSelection==="Scissors") {
         alert("It's a tie!");
