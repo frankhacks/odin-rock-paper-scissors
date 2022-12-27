@@ -14,13 +14,13 @@ function game() {
     var butts = document.getElementById('butts');
 
 function addToBoard(){
-    const scoreBoard = document.createElement('div');
+    const scoreBoard = document.createElement('h2');
     scoreBoard.classList.add('scoreBoard');
     sboard.innerHTML="";
     if (computerScore == 5) {
-        scoreBoard.textContent = "Game over, computer wins "+computerScore+" to "+playerScore+"!";
+        scoreBoard.textContent = "Game over, computer wins "+computerScore+" to "+playerScore+"! Press PLAY to try again";
     } else if (playerScore == 5) {
-        scoreBoard.textContent = "Game over, player wins "+playerScore+" to "+computerScore+"!";
+        scoreBoard.textContent = "Game over, player wins "+playerScore+" to "+computerScore+"! Press PLAY to try again";
     } else {
         scoreBoard.textContent = `Computer: ${computerScore} Player: ${playerScore}`;
     }
@@ -29,11 +29,19 @@ function addToBoard(){
 
 function chickenDinner(){
     if(computerScore==5){
-        butts.innerHTML="";
+        //butts.innerHTML="";
         playGame.style.display = "initial";
+        document.getElementById("rockButt").disabled = true;
+        document.getElementById("papButt").disabled = true;
+        document.getElementById("sciButt").disabled = true;
+        document.getElementById("playGame").disabled = false;
     } else if(playerScore==5){
-        butts.innerHTML="";
+        //butts.innerHTML="";
         playGame.style.display = "initial";
+        document.getElementById("rockButt").disabled = true;
+        document.getElementById("papButt").disabled = true;
+        document.getElementById("sciButt").disabled = true;  
+        document.getElementById("playGame").disabled = false;      
     }
 }
 
@@ -106,29 +114,27 @@ openGame.addEventListener("click", addButtons);
 
 const board = document.querySelector('#board'); //not sure what the hell this is for
 
+document.getElementById("rockButt").disabled = true;
+document.getElementById("papButt").disabled = true;
+document.getElementById("sciButt").disabled = true;
+
 function addButtons() {
-    var rockButt = document.createElement("button");
-    var rockText = document.createTextNode("Rock!");
-    rockButt.setAttribute("id", "rockButt");
     rockButt.setAttribute("onClick","rockClick()");
-    rockButt.appendChild(rockText);
-    butts.appendChild(rockButt);
-    var papButt = document.createElement("button");
-    var papText = document.createTextNode("Paper!");
-    papButt.setAttribute("id", "papButt");
     papButt.setAttribute("onClick","paperClick()");
-    papButt.appendChild(papText);
-    butts.appendChild(papButt);
-    var sciButt = document.createElement("button");
-    var sciText = document.createTextNode("Scissors!");
-    sciButt.setAttribute("id", "sciButt");
     sciButt.setAttribute("onClick","scissorsClick()");
-    sciButt.appendChild(sciText);
-    butts.appendChild(sciButt);
+    document.getElementById("rockButt").disabled = false;
+    document.getElementById("papButt").disabled = false;
+    document.getElementById("sciButt").disabled = false;
+    document.getElementById("playGame").disabled = true;    
     playerScore = 0; //resets player score
     computerScore = 0; //resets computer score
     sboard.innerHTML="";
-    playGame.style.display = "none";
+    const scoreBoard = document.createElement('h2');
+    scoreBoard.classList.add('scoreBoard');
+    sboard.innerHTML="";    
+    scoreBoard.textContent = `Computer: ${computerScore} Player: ${playerScore}`;
+    sboard.appendChild(scoreBoard);
+    //playGame.style.display = "none";
 }
 
 
